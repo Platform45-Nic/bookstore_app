@@ -17,6 +17,7 @@ gem 'slim-rails'
 gem 'devise'
 gem 'will_paginate', '3.1.7'
 gem 'bootstrap-sass'
+gem 'jquery-rails'
 
 
 group :development, :test do
