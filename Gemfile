@@ -18,6 +18,7 @@ gem 'devise'
 gem 'will_paginate', '3.1.7'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'bootstrap_form'
 
 
 group :development, :test do
