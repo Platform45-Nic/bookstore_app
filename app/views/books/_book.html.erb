@@ -7,7 +7,8 @@
       <div class="post-content">
       
         <div class="posted-by">Posted by <%= @user.find(book.author_id) %></div>
-        <h3><%= book.title %></h3> 
+        <h3><%= book.title %></h3>
+        <p>Description:</p>
         <p><%= book.description %></p>
         <%= link_to "I'm interested", book_path(book.id), class: 'interested' %>
       </div>
