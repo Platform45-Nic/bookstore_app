@@ -1,0 +1,16 @@
+<div class="col-sm-3 single-post-card" id=<%= book_path(book.id) %>>
+  <div class="card">
+    <div class="card-block">
+      <h4 class="post-text">
+        <%= truncate(book.title, :length => 60) %>
+      </h4>
+      <div class="post-content">
+      
+        <div class="posted-by">Posted by <%= @user.find(book.author_id) %></div>
+        <h3><%= book.title %></h3> 
+        <p><%= book.description %></p>
+        <%= link_to "I'm interested", book_path(book.id), class: 'interested' %>
+      </div>
+    </div>
+  </div><!-- card -->
+</div><!-- col-sm-3 -->
