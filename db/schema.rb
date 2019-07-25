@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190724094650) do
+ActiveRecord::Schema.define(version: 20190725090356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.bigint "author_id"
+    t.bigint "genre_id"
+    t.text "description"
+    t.date "published_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_books_on_author_id"
+    t.index ["genre_id"], name: "index_books_on_genre_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.bigint "created_by_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["created_by_id"], name: "index_genres_on_created_by_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +49,7 @@ ActiveRecord::Schema.define(version: 20190724094650) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "books", "genres"
+  add_foreign_key "books", "users", column: "author_id"
+  add_foreign_key "genres", "users", column: "created_by_id"
 end

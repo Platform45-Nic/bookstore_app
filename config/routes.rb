@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'static_pages#index'
+
   devise_for :users, :controllers => {:registrations => "registrations"}
 
   devise_scope :user do
@@ -9,5 +11,5 @@ Rails.application.routes.draw do
     get 'signup', to: 'devise/registrations#new'
   end
 
-  root to: 'static_pages#index'
+  resources :books
 end
