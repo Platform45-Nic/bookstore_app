@@ -11,5 +11,8 @@ Rails.application.routes.draw do
     get 'signup', to: 'devise/registrations#new'
   end
 
-  resources :books
+  resources :books #do 
+    #get 'genre/:name', to: 'genre#index', as: 'genre'
+  #end
+  resources :genres
 end
