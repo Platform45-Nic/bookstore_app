@@ -1,9 +1,8 @@
 <div id="main-content" class="col-sm-9">
-<p>User Name: </p>
-  <p><%= @user.first_name %> <%= @user.last_name %></p>
-<br>
-  <p>Email Address: </p>
-  <%= @user.email %>
+<p>Genres: </p>
+  <% @genre.each do |genres| %>
+    <%= genres.name %>
+  <% end %>
   <br>
   <br>
   <br>

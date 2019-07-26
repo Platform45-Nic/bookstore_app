@@ -1,0 +1,17 @@
+<div class="container" id="sign-up-form">
+  <div class="row">
+  <h3>Add a Genre</h3>
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= form_for(@genre) do |f| %>
+        <div class="field">
+          <%= f.label :name, "Genre Name" %><br />
+          <%= f.text_field :name, :autocomplete => "off"  %>
+        </div>
+          <%= f.hidden_field :created_by_id, :value => @user_id %>
+        <div class="action_container">
+          <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
