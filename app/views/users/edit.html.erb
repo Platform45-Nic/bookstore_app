@@ -1,0 +1,32 @@
+<div class="container" id="sign-up-form">
+  <div class="row">
+  <h3>Update your profile</h3>
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= form_for(@user, :url => { :action => "update" } ) do |f| %>
+        <div class="field">
+          <%= f.label :email, "Email" %><br />
+          <%= f.email_field :email, :autocomplete => "on"  %>
+        </div>
+        <div class="field">
+          <%= f.label :first_name, "First Name" %><br />
+          <%= f.text_field :first_name, :autocomplete => "on"  %>
+        </div>
+        <div class="field">
+          <%= f.label :last_name, "Last Name" %><br />
+          <%= f.text_field :last_name, :autocomplete => "on"  %>
+        </div>
+        <div class="field">
+          <%= f.label :password, "Password" %><br />
+          <%= f.password_field :password, :autocomplete => "off"  %>
+        </div>
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation %>
+        </div>
+        <div class="action_container">
+          <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

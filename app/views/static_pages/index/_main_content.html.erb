@@ -1,3 +1,7 @@
 <div id="main-content" class="col-sm-9">
-<%= render @books %>
+<p>User Name: </p>
+  <p><%= @user.first_name %> <%= @user.last_name %></p>
+<br>
+  <p>Email Address: </p>
+  <%= @user.email %>
 </div><!-- main-content -->
