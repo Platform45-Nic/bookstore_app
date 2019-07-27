@@ -1,0 +1,17 @@
+<div id="main-content" class="col-sm-9">
+<p>User Name: </p>
+  <p><%= @user.first_name %> <%= @user.last_name %></p>
+<br>
+  <p>Email Address: </p>
+  <%= @user.email %>
+  <br>
+  <br>
+  <br>
+    <%= link_to new_genre_path do %>
+      <i class="fa fa-user-circle-o" aria-hidden="true"></i> Add a Genre
+    <% end %>
+    <br>
+    <%= link_to new_book_path do %>
+      <i class="fa fa-user-circle-o" aria-hidden="true"></i> Add a Book
+    <% end %>
+</div><!-- main-content -->

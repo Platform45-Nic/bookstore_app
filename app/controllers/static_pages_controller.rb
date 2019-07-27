@@ -1,6 +1,12 @@
 class StaticPagesController < ApplicationController
   def index
-    @user = User.all
-    @books = Book.limit(5)
+    if current_user.present?
+      @user = User.find(current_user.id)
+    else
+      render "home"
+    end
+  end
+
+  def home
   end
 end

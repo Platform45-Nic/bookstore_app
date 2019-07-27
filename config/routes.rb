@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  root to: 'static_pages#index'
+  root to: 'static_pages#home'
+  get  'static_pages/home', as: 'home'
+  get  'index', to: 'static_pages#index'
+
+  resource :users, only: [:edit] do
+    collection do
+      patch 'update'
+    end
+  end
 
   devise_for :users, :controllers => {:registrations => "registrations"}
 
@@ -11,5 +19,8 @@ Rails.application.routes.draw do
     get 'signup', to: 'devise/registrations#new'
   end
 
-  resources :books
+  resources :books #do 
+    #get 'genre/:name', to: 'genre#index', as: 'genre'
+  #end
+  resources :genres
 end

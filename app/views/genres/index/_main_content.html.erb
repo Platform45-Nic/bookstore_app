@@ -1,0 +1,16 @@
+<div id="main-content" class="col-sm-9">
+<p>Current Genres: </p>
+  <% @genre.each do |genres| %>
+    <%= genres.name %>
+  <% end %>
+  <br>
+  <br>
+  <br>
+    <%= link_to new_genre_path do %>
+      <i class="fa fa-user-circle-o" aria-hidden="true"></i> Add a Genre
+    <% end %>
+    <br>
+    <%= link_to new_book_path do %>
+      <i class="fa fa-user-circle-o" aria-hidden="true"></i> Add a Book
+    <% end %>
+</div><!-- main-content -->
