@@ -1,8 +1,11 @@
 <div id="main-content" class="col-sm-9">
-<p>Current Books: </p>
+<p>List of All Books: </p>
   <% @book.each do |books| %>
     <li>
-    <%= books.name %>
+    <%= books.title %>
+    <%= books.description %>
+    <%= books.author_id %>
+    <%= books.genre_id %>
     </li>
   <% end %>
   <br>
@@ -14,5 +17,13 @@
     <br>
     <%= link_to new_book_path do %>
       <i class="fa fa-user-circle-o" aria-hidden="true"></i> Add a Book
+    <% end %>
+    <br>
+    <%= link_to index_path do %>
+      <i class="fa fa-user-circle-o" aria-hidden="true"></i> View Profile
+    <% end %>
+    <br>
+    <%= link_to books_path do %>
+      <i class="fa fa-user-circle-o" aria-hidden="true"></i> View All Books
     <% end %>
 </div><!-- main-content -->

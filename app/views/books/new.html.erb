@@ -11,16 +11,13 @@
           <%= f.label :description, "Book Description" %><br />
           <%= f.text_field :description, :autocomplete => "off"  %>
         </div>
-        <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Genre<span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <% Genre.all.each do |genres|%>
-              <li><%= f.label :name, genres.name %><%= f.hidden_field :genre_id, :value => :genre_id %></li>
-            <% end %>
-          </ul>
+        <div class="field">
+          <%= f.label :genre_id %><br />
+          <%= f.collection_select :genre_id, Genre.order(:name), :id, :name, include_blank: false %>
         </div>
-          <%= f.hidden_field :author_id, :value => @user_id %>
+          <%= f.hidden_field :author_id, :value => current_user.id %>
         <div class="action_container">
+        <br>
           <%= f.submit %>
         </div>
       <% end %>
