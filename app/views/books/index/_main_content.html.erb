@@ -6,6 +6,8 @@
     <%= books.description %>
     <%= books.author_id %>
     <%= books.genre_id %>
+    <%= link_to "Edit", edit_book_path(books.id) %>
+    <%= link_to "View", book_path(books.id) %>
     </li>
   <% end %>
   <br>

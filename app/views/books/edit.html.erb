@@ -1,0 +1,26 @@
+<div class="container" id="sign-up-form">
+  <div class="row">
+  <h3>Edit Book:</h3>
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= form_for(@book) do |f| %>
+        <div class="field">
+          <%= f.label :title, "Book Title" %><br />
+          <%= f.text_field :title, :autocomplete => "off"  %>
+        </div>
+        <div class="field">
+          <%= f.label :description, "Book Description" %><br />
+          <%= f.text_field :description, :autocomplete => "off"  %>
+        </div>
+        <div class="field">
+          <%= f.label :genre_id %><br />
+          <%= f.collection_select :genre_id, Genre.order(:name), :id, :name, include_blank: false %>
+        </div>
+          <%= f.hidden_field :author_id, :value => current_user.id %>
+        <div class="action_container">
+        <br>
+          <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
