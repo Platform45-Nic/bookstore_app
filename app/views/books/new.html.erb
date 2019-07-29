@@ -1,0 +1,29 @@
+<div class="container" id="sign-up-form">
+  <div class="row">
+  <h3>Add a Book:</h3>
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= form_for(@book) do |f| %>
+        <div class="field">
+          <%= f.label :title, "Book Title" %><br />
+          <%= f.text_field :title, :autocomplete => "off"  %>
+        </div>
+        <div class="field">
+          <%= f.label :description, "Book Description" %><br />
+          <%= f.text_field :description, :autocomplete => "off"  %>
+        </div>
+        <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Genre<span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <% Genre.all.each do |genres|%>
+              <li><%= f.label :name, genres.name %><%= f.hidden_field :genre_id, :value => :genre_id %></li>
+            <% end %>
+          </ul>
+        </div>
+          <%= f.hidden_field :author_id, :value => @user_id %>
+        <div class="action_container">
+          <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
