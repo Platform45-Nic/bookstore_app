@@ -1,7 +1,9 @@
 <div id="main-content" class="col-sm-9">
 <p>Current Genres: </p>
   <% @genre.each do |genres| %>
+    <li>
     <%= genres.name %>
+    </li>
   <% end %>
   <br>
   <br>

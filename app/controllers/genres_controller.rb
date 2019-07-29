@@ -17,7 +17,7 @@ class GenresController < ApplicationController
     @genre = Genre.new(genre_params)
     if @genre.save
       flash[:success] = "You have created a Genre"
-      redirect_to index
+      redirect_to genres_path
     else
       render 'new'
     end
