@@ -6,6 +6,10 @@ class GenresController < ApplicationController
 
   def show
     @genre = Genre.all
+    @book = Book.all.find(current_user.id)
+    @genre.each do
+      get_book_using_genre_id(@book)
+    end
   end
 
   def new
@@ -28,4 +32,8 @@ class GenresController < ApplicationController
     def genre_params
       params.require(:genre).permit(:name, :created_by_id)
     end
+
+    def get_book_using_genre_id(selected_genre)
+      @book = Book.find(selected_genre).title
+    end 
 end

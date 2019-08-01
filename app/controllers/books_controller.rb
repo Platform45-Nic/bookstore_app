@@ -10,6 +10,16 @@ class BooksController < ApplicationController
     # @user = User.find(aid)
   end
 
+  def profile
+    if current_user.present?
+    @user = User.find(current_user.id)
+    @book = Book.all.find(current_user.id)
+    @genre = get_genre_id(@book.genre_id)
+    else
+      redirect_to login_path
+    end
+  end
+
   def new
     @book = Book.new
   end
@@ -50,10 +60,9 @@ class BooksController < ApplicationController
     #   @user_id = User.find(current_user.id)
     # end
 
-    # def get_genre_id(selected_genre)
-    #   @genre_id = Genre.find(selected_genre)
-    #   @genre_id = @genre_id.id
-    # end
+    def get_genre_id(selected_genre)
+      @genre_id = Genre.find(selected_genre)
+    end
 
     # def list_all_genre
     #   @genre_by_name = Genre.all

@@ -1,16 +1,10 @@
-<div id="main-content" class="col-sm-9">
-<p>List of All Books: </p>
-  <% @book.each do |books| %>
-    <li>
-    <%= books.title %>
-    <%= books.description %>
-    <%= books.author_id %>
-    <%= books.genre_id %>
-    <%= link_to "Edit", edit_book_path(books.id) %>
-    <%= link_to "View", book_path(books.id) %>
-    <%= link_to "BookProfile", book_profile_path(books.id) %>
-    </li>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <h1>The book:</h1>
+    <h3><%= @book.title %></h3><br>
+    <%= @book.description %><br>
+    <%= @genre.name %><br>
+    <%= @user.first_name %>
   <br>
   <br>
   <br>
@@ -29,4 +23,5 @@
     <%= link_to books_path do %>
       <i class="fa fa-user-circle-o" aria-hidden="true"></i> View All Books
     <% end %>
-</div><!-- main-content -->
+  </div><!-- row -->
+</div><!-- container -->

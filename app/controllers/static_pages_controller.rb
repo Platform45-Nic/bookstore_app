@@ -1,4 +1,9 @@
 class StaticPagesController < ApplicationController
+
+  # def current_user
+  #   @current_user ||= User.find_by(id: session[:user_id])
+  # end
+
   def index
     if current_user.present?
       @user = User.find(current_user.id)
@@ -8,18 +13,9 @@ class StaticPagesController < ApplicationController
   end
 
   def home
-    # @book = Book.all.map { |b| [b.title, b.description, b.author_id, b.genre_id] }
-    @book = Book.all.map{ |b| [b.title, b.description, get_user_name_from_id(b), get_genre_name_from_id(b)]}.to_h
-    # @book_list_hash = Hash.new do |hash, key|
-    #   @book.each do |b|
-    #     @book_title = b.title
-    #     @book_description = b.description
-    #     @book_author_name = get_user_name_from_id(b)
-    #     @book_genre_name = get_genre_name_from_id(b)
-    #     @book_list_hash[]
-    #     hash[key] = {title: @book_title, description: @book_description, author_name: @book_author_name, book_genre: @book_genre_name}
-    #     end
-    #   end
+    # if current_user.present?
+    @user = User.find(current_user.id)
+    @book = Book.all.find(current_user.id)
   end
 
   private
