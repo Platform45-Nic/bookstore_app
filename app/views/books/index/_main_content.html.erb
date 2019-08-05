@@ -8,6 +8,7 @@
     <%= books.genre_id %>
     <%= link_to "Edit", edit_book_path(books.id) %>
     <%= link_to "View", book_path(books.id) %>
+    <%= link_to "Purchase", transactions_path(:transaction_comment => "Default comment",:user_id => current_user.id, :book_id => books.id), :method => :post %>
     </li>
   <% end %>
   <br>
@@ -27,5 +28,9 @@
     <br>
     <%= link_to books_path do %>
       <i class="fa fa-user-circle-o" aria-hidden="true"></i> View All Books
+    <% end %>
+    <br>
+    <%= link_to transactions_path do %>
+      <i class="fa fa-user-circle-o" aria-hidden="true"></i> See All Purchases
     <% end %>
 </div><!-- main-content -->

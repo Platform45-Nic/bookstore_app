@@ -1,0 +1,18 @@
+#sign-up-form.container
+  .row
+    h3
+      | Buy this Book:
+    .col-sm-6.col-sm-offset-3
+      = form_for(@transaction) do |f|
+        .field
+          = f.label :transaction_comment, "Add a comment:"
+          br
+          = f.text_field :transaction_comment, :autocomplete => "off"
+        .field
+          = f.label :book_id
+          br
+          = f.collection_select :book_id, Book.order(:title), :id, :title, include_blank: false
+        = f.hidden_field :user_id, :value => current_user.id
+        .action_container
+          br
+          = f.submit
