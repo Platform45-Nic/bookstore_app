@@ -1,0 +1,48 @@
+.container
+  .row
+    #side-menu.col-sm-3
+      ul#links-list
+        = link_to books_path do
+          i.fa.fa-user-circle-o[aria-hidden="true"]
+          |  Find a book 
+        = link_to genres_path do
+          i.fa.fa-user-circle-o[aria-hidden="true"]
+          |  Find a genre 
+    #main-content.col-sm-9
+      p
+        | List of All Purchases: 
+      - @transaction.each do |transactions|
+        li
+        | Comments: 
+        = transactions.transaction_comment
+        li
+          | Buyer: 
+          = User.find(transactions.user_id).first_name
+          '
+          = User.find(transactions.user_id).last_name
+        li
+          | Book Title: 
+          = Book.find(transactions.book_id).title
+        li
+          | Book Author: 
+          = User.find(Book.find(transactions.book_id).author_id).first_name
+          '
+          = User.find(Book.find(transactions.book_id).author_id).last_name
+      br
+      br
+      br
+      = link_to new_genre_path do
+        i.fa.fa-user-circle-o[aria-hidden="true"]
+        |  Add a Genre 
+      br
+      = link_to new_book_path do
+        i.fa.fa-user-circle-o[aria-hidden="true"]
+        |  Add a Book 
+      br
+      = link_to index_path do
+        i.fa.fa-user-circle-o[aria-hidden="true"]
+        |  View Profile 
+      br
+      = link_to books_path do
+        i.fa.fa-user-circle-o[aria-hidden="true"]
+        |  View All Books 
