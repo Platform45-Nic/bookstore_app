@@ -6,8 +6,6 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    # aid = @book.author_id
-    # @user = User.find(aid)
   end
 
   def new
@@ -26,6 +24,20 @@ class BooksController < ApplicationController
     end
   end
 
+  def edit
+    @book = Book.find(params[:id])
+  end
+
+  def update
+    @book = Book.find(params[:id])
+    if @book.update_attributes(book_params)
+      flash[:success] = "You have updated a Book"
+      redirect_to @book
+    else
+      render 'edit'
+    end
+  end
+
   private
 
     def book_params
@@ -38,10 +50,6 @@ class BooksController < ApplicationController
 
     # def get_genre_id(selected_genre)
     #   @genre_id = Genre.find(selected_genre)
-    #   @genre_id = @genre_id.id
     # end
 
-    # def list_all_genre
-    #   @genre_by_name = Genre.all
-    # end
 end
