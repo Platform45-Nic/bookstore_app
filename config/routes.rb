@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: 'static_pages#home'
   get  'home', to: 'static_pages#home'
+  get  'show', to: 'static_pages#show'
   get  'index', to: 'static_pages#index'
 
   devise_for :users, :controllers => {:registrations => "registrations"}
