@@ -10,7 +10,20 @@
           |  Find a genre 
     #main-content.col-sm-9
       p
-        | List of All Purchases: 
+        | User Name: 
+      p
+        = @user.first_name
+        '
+        = @user.last_name
+      br
+      p
+        | Email Address: 
+      = @user.email
+      br
+      br
+      br
+      p
+        | Purchased Books: 
       - @transaction.each do |transactions|
         li
         | Comments: 
